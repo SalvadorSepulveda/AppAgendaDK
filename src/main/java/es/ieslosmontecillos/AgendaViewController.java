@@ -15,6 +15,7 @@ import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -127,6 +128,8 @@ public class AgendaViewController implements Initializable {
             personaDetalleViewController.mostrarDatos();
         } catch (IOException ex){
             System.out.println("Error volcado"+ex);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -150,6 +153,8 @@ public class AgendaViewController implements Initializable {
             personaDetalleViewController.mostrarDatos();
         } catch (IOException ex){
             System.out.println("Error volcado"+ex);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 
