@@ -72,7 +72,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="378.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                <children>
                   <ImageView fx:id="imageViewFoto" fitHeight="53.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button mnemonicParsing="false" text="Examinar" />
+                  <Button mnemonicParsing="false" text="Examinar" onAction="#onActionButtonExaminar" />
                </children>
             </HBox>
          </children>
