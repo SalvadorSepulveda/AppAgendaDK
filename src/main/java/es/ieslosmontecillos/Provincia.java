@@ -1,16 +1,13 @@
 package es.ieslosmontecillos;
-
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
 import javax.xml.bind.annotation.XmlElement;
 public class Provincia {
     private final IntegerProperty id = new SimpleIntegerProperty();
     private final StringProperty codigo = new SimpleStringProperty();
     private final StringProperty nombre = new SimpleStringProperty();
-    //ID
     @XmlElement(name = "id")
     public Integer getId() {
         return id.get();
@@ -21,7 +18,6 @@ public class Provincia {
     public void setId(Integer id) {
         this.id.set(id);
     }
-    //CODIGO
     @XmlElement(name = "codigo")
     public String getCodigo() {
         return codigo.get();
@@ -32,7 +28,6 @@ public class Provincia {
     public void setCodigo(String codigo) {
         this.codigo.set(codigo);
     }
-    //NOMBRE
     @XmlElement(name = "nombre")
     public String getNombre() {
         return nombre.get();
