@@ -100,9 +100,11 @@ public class AgendaViewController implements Initializable {
     public void onActionButtonNuevo(ActionEvent event){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/PersonaDetalleView.fxml"));
-            Parent rootDetalleView=fxmlLoader.load();
+            Parent rootDetalleView = fxmlLoader.load();
             PersonaDetalleViewController personaDetalleViewController = (PersonaDetalleViewController) fxmlLoader.getController();
             personaDetalleViewController.setRootAgendaView(rootAgendaView);
+            personaDetalleViewController.setDataUtil(this.dataUtil);
+            personaDetalleViewController.setTableViewPrevio(tableViewAgenda);
             rootAgendaView.setVisible(false);
             StackPane rootMain = (StackPane) rootAgendaView.getScene().getRoot();
             rootMain.getChildren().add(rootDetalleView);
@@ -116,12 +118,15 @@ public class AgendaViewController implements Initializable {
         }
     }
 
+
     public void onActionButtonEditar(ActionEvent actionEvent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/PersonaDetalleView.fxml"));
             Parent rootDetalleView=fxmlLoader.load();
             PersonaDetalleViewController personaDetalleViewController = (PersonaDetalleViewController) fxmlLoader.getController();
             personaDetalleViewController.setRootAgendaView(rootAgendaView);
+            personaDetalleViewController.setDataUtil(this.dataUtil);
+            personaDetalleViewController.setTableViewPrevio(tableViewAgenda);
             rootAgendaView.setVisible(false);
             StackPane rootMain = (StackPane) rootAgendaView.getScene().getRoot();
             rootMain.getChildren().add(rootDetalleView);
