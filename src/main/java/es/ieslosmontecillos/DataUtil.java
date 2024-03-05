@@ -11,10 +11,8 @@ import javafx.collections.ObservableList;
 import javax.json.JsonObject;
 
 public class DataUtil {
-    private ObservableList<Provincia> olProvincias =
-            FXCollections.observableArrayList();
-    private ObservableList<Persona> olPersonas =
-            FXCollections.observableArrayList();
+    private ObservableList<Provincia> olProvincias = FXCollections.observableArrayList();
+    private ObservableList<Persona> olPersonas = FXCollections.observableArrayList();
     public void obtenerTodasProvincias() {
         System.out.println("Provincias...");
         RestClient restClient = RestClient.create().method("GET") .host("http://localhost:8080").path("/api/v1/PROVINCIA");
