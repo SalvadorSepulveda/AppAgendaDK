@@ -3,6 +3,7 @@ package es.ieslosmontecillos;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -30,6 +31,8 @@ public class AppAgendaDK extends Application {
         inicioController.setOlPers(olPers);
         inicioController.setRootMain(rootMain);
         Scene scene = new Scene(rootMain,800,800);
+        Image icon = new Image(getClass().getResourceAsStream("img/agenda.png"));
+        primaryStage.getIcons().add(icon);
         primaryStage.setTitle("App Agenda DK Sepu");
         primaryStage.setScene(scene);
         primaryStage.show();
