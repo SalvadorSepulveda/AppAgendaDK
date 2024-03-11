@@ -11,29 +11,18 @@ import java.io.IOException;
 
 public class InicioController {
     @FXML
-    private View inicio;
-    @FXML
     private Label label;
-    private DataUtil dataUtil;
-    private ObservableList olProv;
-    private ObservableList olPers;
     private Pane rootMain = new Pane();
     private Pane getRootMain(){
         return rootMain;
     }
 
-    @Deprecated
+    @FXML
     public void iniciaApp(MouseEvent mouseEvent) {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/AgendaView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));
             Pane rootAgendaView = fxmlLoader.load();
             rootMain.getChildren().add(rootAgendaView);
-            AgendaViewController agendaViewController = fxmlLoader.getController();
-            agendaViewController.setDataUtil(dataUtil);
-            agendaViewController.setOlProvincias(olProv);
-            agendaViewController.setOlPersonas(olPers);
-            agendaViewController.cargarTodasPersonas();
-            inicio.setVisible(false);
         } catch (IOException e) {
             System.out.println("IOException: " + e);
         }
@@ -41,17 +30,5 @@ public class InicioController {
 
     public void setRootMain(Pane rootMain) {
         this.rootMain = rootMain;
-    }
-
-    public void setDataUtil(DataUtil dataUtil) {
-        this.dataUtil = dataUtil;
-    }
-
-    public void setOlProv(ObservableList olProv) {
-        this.olProv = olProv;
-    }
-
-    public void setOlPers(ObservableList olPers) {
-        this.olPers = olPers;
     }
 }

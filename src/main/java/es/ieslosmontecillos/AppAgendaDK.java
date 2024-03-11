@@ -13,6 +13,7 @@ public class AppAgendaDK extends Application {
     private DataUtil dataUtil;
     private InicioView inicioView = new InicioView();
     private InicioController inicioController;
+    private LoginController loginController;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -26,9 +27,9 @@ public class AppAgendaDK extends Application {
         ObservableList<Provincia> olProv = dataUtil.getOlProvincias();
         dataUtil.obtenerTodasPersonas();
         ObservableList<Persona> olPers = dataUtil.getOlPersonas();
-        inicioController.setDataUtil(dataUtil);
-        inicioController.setOlProv(olProv);
-        inicioController.setOlPers(olPers);
+//        inicioController.setDataUtil(dataUtil);
+//        inicioController.setOlProv(olProv);
+//        inicioController.setOlPers(olPers);
         inicioController.setRootMain(rootMain);
         Scene scene = new Scene(rootMain,800,800);
         Image icon = new Image(getClass().getResourceAsStream("img/agenda.png"));
