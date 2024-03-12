@@ -26,9 +26,12 @@ public class AppAgendaDK extends Application {
         ObservableList<Provincia> olProv = dataUtil.getOlProvincias();
         dataUtil.obtenerTodasPersonas();
         ObservableList<Persona> olPers = dataUtil.getOlPersonas();
+        dataUtil.obtenerTodosUsers();
+        ObservableList<Usuario> olUsers = dataUtil.getOlUsuarios();
         inicioController.setDataUtil(dataUtil);
         inicioController.setOlProv(olProv);
         inicioController.setOlPers(olPers);
+        inicioController.setOlUsers(olUsers);
         inicioController.setRootMain(rootMain);
         Scene scene = new Scene(rootMain,800,800);
         Image icon = new Image(getClass().getResourceAsStream("img/agenda.png"));

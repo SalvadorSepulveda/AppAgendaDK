@@ -22,6 +22,7 @@ public class AgendaViewController implements Initializable {
     private DataUtil dataUtil;
     private ObservableList<Provincia> olProvincias = FXCollections.observableArrayList();
     private ObservableList<Persona> olPersonas = FXCollections.observableArrayList();
+    private ObservableList<Usuario> olUsers = FXCollections.observableArrayList();
     @FXML
     private TableView<Persona> tableViewAgenda;
     @FXML
@@ -79,6 +80,8 @@ public class AgendaViewController implements Initializable {
     public void setOlPersonas(ObservableList<Persona> olPersonas) {
         this.olPersonas = olPersonas;
     }
+
+    public void setOlUsers(ObservableList<Usuario> olUsers) { this.olUsers = olUsers; }
 
     public void cargarTodasPersonas() {
         tableViewAgenda.setItems(FXCollections.observableArrayList(olPersonas));
