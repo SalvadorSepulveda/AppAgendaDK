@@ -83,6 +83,7 @@
                         </Button>
                      </children>
                   </HBox>
+                  <Label fx:id="labelInfo" style="-fx-text-fill: red;" />
                </children>
             </VBox>
          </children>
