@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class InicioController {
     @FXML
@@ -19,12 +20,14 @@ public class InicioController {
     private DataUtil dataUtil;
     private ObservableList olProv;
     private ObservableList olPers;
-    private ObservableList olUsers;
+    private ObservableList<Usuario> olUsers;
     private Pane rootMain = new Pane();
     @FXML
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Label labelInfo;
 
     private Pane getRootMain(){
         return rootMain;
@@ -52,24 +55,34 @@ public class InicioController {
 
     @FXML
     public void onEnterClicked(ActionEvent actionEvent) {
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/AgendaView.fxml"));
-            Pane rootAgendaView = fxmlLoader.load();
-            rootMain.getChildren().add(rootAgendaView);
-            AgendaViewController agendaViewController = fxmlLoader.getController();
-            agendaViewController.setDataUtil(dataUtil);
-            agendaViewController.setOlProvincias(olProv);
-            agendaViewController.setOlPersonas(olPers);
-            agendaViewController.setOlUsers(olUsers);
-            agendaViewController.cargarTodasPersonas();
-            inicio.setVisible(false);
-        } catch (IOException e) {
-            System.out.println("IOException: " + e);
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        Optional<Usuario> usuarioEncontrado = olUsers.stream().filter(u -> username.equals(u.getUsername()) && password.equals(u.getPassword())).findFirst();
+
+        if (usuarioEncontrado.isPresent()) {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/AgendaView.fxml"));
+                Pane rootAgendaView = fxmlLoader.load();
+                rootMain.getChildren().add(rootAgendaView);
+                AgendaViewController agendaViewController = fxmlLoader.getController();
+                agendaViewController.setDataUtil(dataUtil);
+                agendaViewController.setOlProvincias(olProv);
+                agendaViewController.setOlPersonas(olPers);
+                agendaViewController.setOlUsers(olUsers);
+                agendaViewController.cargarTodasPersonas();
+                inicio.setVisible(false);
+            } catch (IOException e) {
+                System.out.println("IOException: " + e);
+            }
+        } else {
+            labelInfo.setText("El usuario o contraseña no esta bien escrito o no existe.");
         }
     }
 
     @FXML
     public void onExitClicked(ActionEvent actionEvent) {
-        System.out.println("clicked");
+        System.out.println("Exit");
+        System.exit(0);
     }
 }
